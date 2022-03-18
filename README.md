@@ -1,29 +1,80 @@
-## Instructions for students:
+# Weather CLI 
 
-### Weather CLI 
+Get the latest weather report - from your terminal!
 
-Create a Weather CLI. The program should have an API call for [`OpenWeather`](https://openweathermap.org/guide), and it should accept any given city. 
+## What you will be doing
 
--   Make sure the program has an `index.js` file and any other files required.
--   Make sure to use `axios`.
--   Make sure to get your own `API KEY`.
+You will be writing a CLI application which uses the [OpenWeatherMap API](https://openweathermap.org/) to get weather information.
 
--   After you have executed your program you should be able to see the following output:
+The user will provide a city name when they run the program. Your program must use that city name in its request - and print the results into the terminal.
 
+### Example
+
+###### Command
 ```bash
-$ node src/index.js berlin
-It is now 18.89°C in Berlin, DE
-The current weather conditions are: few clouds
+$ node weather.js manchester
 ```
 
-**Bonuses**
+###### Response
+```bash
+@@@@@@@@@@@@@@@@@@@
+@ WEATHER PROGRAM @
+@@@@@@@@@@@@@@@@@@@
 
--   Your program should be able to display the 5 day forecast.
+It is now 15.25°C in Manchester
 
--   Your program should be able to display the degrees also in Fahrenheit.
+The current weather conditions are: scattered clouds
+```
 
-### Rules
+## Tasks
 
--   This is an individual assignment.
--   Deadline: 2 hours.
--   Use **Git properly**
+### Task 1 - Getting registered
+
+Navigate to [https://openweathermap.org/](https://openweathermap.org/) and sign up for a free account. Make note of your API key. You will need this later.
+
+### Task 2 - Setting up the project
+
+1. Initalize `npm` with the `npm init -y` command
+2. Install the `axios` library - we will use this to create our network requests
+3. Install the `dotenv` library - we will use it to create our environment variables
+4. Create the file `weather.js`
+
+### Task 2 - The API key
+
+1. Create the file `.env`
+2. Inside this file, store your API key
+
+   ###### Example
+   
+   ```text
+   KEY = 32476f984jf83jf9fdksu32928475
+   ```
+   
+3. Create a `.gitignore` file, and add the reference `.env`
+
+### Task 3 - Making the request
+
+Inside `weather.js`;
+
+1. Read the city from the user
+    > Hint: You can use `process.argv`
+2. Import and use the [dotenv](https://github.com/motdotla/dotenv) library to read the API key from your `process.env` environment
+3. Import and use the [axios](https://github.com/axios/axios) to request the information from the API
+
+### Task 4 - The output
+
+Read through the returned data from your API and display;
+
+- The city name
+- The current temperature
+- The current weather conditions
+- Anything else you might like to add
+
+> Hint: You might also like to consider using the [colors.js](https://github.com/Marak/colors.js) library to make your output fabulous 🤩! 
+
+## Bonus Tasks
+
+Your program should be also able to;
+
+- Display a 5-day forecast
+- Allow the user to switch between **metric** and **imperial** measurements
